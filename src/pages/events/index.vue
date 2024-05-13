@@ -1,31 +1,18 @@
 <script setup lang="ts">
 import Hero from '@/components/Hero.vue'
-import IconMusic from '@/components/icons/IconMusic.vue'
-import IconDanse from '@/components/icons/IconDanse.vue'
+import Card from '@/components/Card.vue'
+import { events } from '@/data'
 </script>
 <template>
-  <Hero title="Conservatoire Henri Dutilleux" subTitle="Conservatoire à Rayonnement Départemental du Grand Belfort"
-    imgPath="./img/contrebasse.webp" imgAlt="Contrebasse">
+  <Hero title="Agenda" imgPath="./img/orchestre.webp" imgAlt="orchestre">
     <template #chapo>
-      <nav class="font-serif flex-1">
-        <ul class="grid grid-cols-3 gap-12">
-          <li>
-            <a class="flex flex-col items-center gap-4" href="#">
-              <IconMusic /> Musique
-            </a>
-          </li>
-          <li>
-            <a class="flex flex-col items-center gap-4" href="#">
-              <IconTheater /> Théâtre
-            </a>
-          </li>
-          <li>
-            <a class="flex flex-col items-center gap-4" href="#">
-              <IconDanse /> Danse
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <p class="text-xl leading-normal lg:text-3xl">
+        Lieu de création artistique, le conservatoire propose régulièrement des actions culturelles
+        ouvertes à tous.
+      </p>
     </template>
   </Hero>
+  <div class="grille my-24">
+    <Card v-for="event in events" v-bind="event" :key="event.id"/>
+  </div>
 </template>

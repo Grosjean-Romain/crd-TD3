@@ -2,6 +2,8 @@
 defineProps<{
   imgAlt: string
   imgPath: string
+  classPicture?: string
+  classImg?: string
 }>()
 </script>
 
@@ -11,6 +13,8 @@ defineProps<{
   >
     <img
       class="flex-[1_0_100%] object-cover mix-blend-multiply grayscale"
+      :src="imgPath"
+      :alt="imgAlt"
       :src="imgPath"
       :alt="imgAlt"
     />
